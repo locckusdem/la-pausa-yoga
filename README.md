@@ -1,18 +1,16 @@
 # 🧘‍♀️ La Pausa - Sistema de Inscripciones de Yoga
 
-Una aplicación web desarrollada en Flask para gestionar inscripciones a clases de yoga en **La Pausa**, ubicada en Cabrera 54, Banfield.
+Una aplicación web desarrollada en Flask para gestionar inscripciones a clases de yoga en **La Pausa**
 
 ## 📍 Sobre La Pausa
 
 **La Pausa** es tu espacio de tranquilidad y bienestar en el corazón de Banfield. Ofrecemos clases de yoga para todos los niveles en un ambiente cálido y acogedor.
 
-**Dirección**: Cabrera 54, Banfield, Buenos Aires
 
 ## ✨ Características
 
 ### Funcionalidades Principales:
 - **Inscripción de alumnos** con validación de datos
-- **Información de ubicación** (Cabrera 54, Banfield)
 - **Gestión de horarios** con diferentes tipos de clases
 - **Panel de administración** para ver y gestionar inscripciones
 - **Galería de fotos** del estudio (cuando se agreguen las imágenes)
@@ -144,4 +142,4 @@ Para soporte técnico o dudas sobre la aplicación, contacta al administrador de
 ---
 
 **¡Namaste desde La Pausa! 🙏**  
-*Tu espacio de tranquilidad en Banfield*
+*Tu espacio de tranquilidad*
