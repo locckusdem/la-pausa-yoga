@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Pausa - Yoga en Banfield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="La Pausa Logo" class="logo" onerror="this.style.display='none'">
+                    <h1>🧘‍♀️ La Pausa</h1>
+                </div>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/horarios">Horarios</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Mensajes Flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            {{ message }}
+                            <button class="flash-close" onclick="this.parentElement.style.display='none'">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="hero">
+            <h2>Bienvenido a La Pausa</h2>
+            <p>Tu espacio de tranquilidad y bienestar en Banfield</p>
+            <div class="location-info">
+                <p>📍 Cabrera 54, Banfield</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <h3>Sobre La Pausa</h3>
+                <p>En La Pausa creemos que todos merecen un momento de calma en su día. Nuestro espacio en el corazón de Banfield está diseñado para que encuentres tu equilibrio interior a través del yoga.</p>
+            </div>
+            <div class="gallery-preview">
+                <img src="{{ url_for('static', filename='studio1.svg') }}" alt="Estudio La Pausa" class="gallery-img">
+                <img src="{{ url_for('static', filename='studio2.svg') }}" alt="Clases de Yoga" class="gallery-img">
+            </div>
+        </section>
+
+        <section class="inscription-form">
+            <h3>Inscríbete a una Clase</h3>
+            <form action="/inscribirse" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dia">Día de la Semana:</label>
+                    <select id="dia" name="dia" required>
+                        <option value="">Selecciona un día</option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miércoles">Miércoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sábado">Sábado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Horario:</label>
+                    <select id="hora" name="hora" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="07:00">07:00 - Yoga Matutino</option>
+                        <option value="09:00">09:00 - Yoga Suave</option>
+                        <option value="11:00">11:00 - Hatha Yoga</option>
+                        <option value="17:00">17:00 - Yoga Dinámico</option>
+                        <option value="19:00">19:00 - Yoga Relajante</option>
+                        <option value="20:30">20:30 - Yoga Nocturno</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Inscribirse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>La Pausa - Yoga en Banfield</h4>
+                <p>📍 Cabrera 54, Banfield, Buenos Aires</p>
+                <p>📞 Contactanos para más información</p>
+            </div>
+            <div class="footer-social">
+                <p>Síguenos en nuestras redes sociales</p>
+            </div>
+        </div>
+        <p>&copy; 2025 La Pausa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

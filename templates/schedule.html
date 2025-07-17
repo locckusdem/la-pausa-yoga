@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios - La Pausa Yoga</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="La Pausa Logo" class="logo" onerror="this.style.display='none'">
+                    <h1>🧘‍♀️ La Pausa</h1>
+                </div>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/horarios">Horarios</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="schedule-section">
+            <h2>Horarios de Clases</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>Lunes a Viernes</h3>
+                    <div class="time-slot">
+                        <span class="time">07:00</span>
+                        <span class="class-type">Yoga Matutino</span>
+                        <span class="description">Despertar energético</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">09:00</span>
+                        <span class="class-type">Yoga Suave</span>
+                        <span class="description">Para principiantes</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">11:00</span>
+                        <span class="class-type">Hatha Yoga</span>
+                        <span class="description">Posturas tradicionales</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">17:00</span>
+                        <span class="class-type">Yoga Dinámico</span>
+                        <span class="description">Flujo energético</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">19:00</span>
+                        <span class="class-type">Yoga Relajante</span>
+                        <span class="description">Reducción de estrés</span>
+                    </div>
+                </div>
+
+                <div class="schedule-card">
+                    <h3>Fines de Semana</h3>
+                    <div class="time-slot">
+                        <span class="time">09:00</span>
+                        <span class="class-type">Yoga Familiar</span>
+                        <span class="description">Para toda la familia</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">11:00</span>
+                        <span class="class-type">Yoga Restaurativo</span>
+                        <span class="description">Relajación profunda</span>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">20:30</span>
+                        <span class="class-type">Yoga Nocturno</span>
+                        <span class="description">Preparación para el descanso</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p>¿Listo para comenzar tu práctica de yoga?</p>
+                <a href="/" class="btn-primary">Inscríbete Ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>La Pausa - Yoga en Banfield</h4>
+                <p>📍 Cabrera 54, Banfield, Buenos Aires</p>
+                <p>📞 Contactanos para más información</p>
+            </div>
+            <div class="footer-social">
+                <p>Síguenos en nuestras redes sociales</p>
+            </div>
+        </div>
+        <p>&copy; 2025 La Pausa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

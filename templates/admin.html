@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - La Pausa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="La Pausa Logo" class="logo" onerror="this.style.display='none'">
+                    <h1>🧘‍♀️ La Pausa</h1>
+                </div>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/horarios">Horarios</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Mensajes Flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            {{ message }}
+                            <button class="flash-close" onclick="this.parentElement.style.display='none'">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="admin-section">
+            <h2>Panel de Administración - La Pausa</h2>
+            <p>Gestión de inscripciones de alumnos</p>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3>{{ inscripciones|length }}</h3>
+                    <p>Inscripciones Totales</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>Lista de Inscripciones</h3>
+                
+                {% if inscripciones %}
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inscripcion in inscripciones %}
+                        <tr>
+                            <td>{{ inscripcion[0] }}</td>
+                            <td>{{ inscripcion[1] }}</td>
+                            <td>{{ inscripcion[2] }}</td>
+                            <td>{{ inscripcion[3] }}</td>
+                            <td>{{ inscripcion[4] }}</td>
+                            <td>
+                                <form method="POST" action="/eliminar/{{ inscripcion[0] }}" style="display: inline;">
+                                    <button type="submit" class="btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta inscripción?')">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="no-data">
+                    <p>No hay inscripciones registradas aún.</p>
+                    <a href="/" class="btn-primary">Crear Primera Inscripción</a>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>La Pausa - Yoga en Banfield</h4>
+                <p>📍 Cabrera 54, Banfield, Buenos Aires</p>
+                <p>📞 Contactanos para más información</p>
+            </div>
+            <div class="footer-social">
+                <p>Síguenos en nuestras redes sociales</p>
+            </div>
+        </div>
+        <p>&copy; 2025 La Pausa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
